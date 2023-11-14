@@ -1,0 +1,21 @@
+body {
+    font-family: "Roboto Light", sans-serif;
+}
+
+h1 {
+    color: #052C65;
+}
+
+input:focus {
+    outline: none;
+}
+
+input {
+    color: #0D6EFD;
+    font-weight: 600;
+}
+
+input::placeholder {
+    font-weight: 400;
+}
+

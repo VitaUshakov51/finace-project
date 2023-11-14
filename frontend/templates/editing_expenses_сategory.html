@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование категории расходов</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/styles/common.css">
+</head>
+<body class="">
+<div class="container-fluid">
+    <span class="burger" id="burger"><i class="fa-solid fa-bars"></i></span>
+    <div class="row flex-nowrap">
+        <div id="sidebar" class="sidebar col-auto col-md-3 col-xl-2  px-0 border border-2 border-light border-top-0 border-bottom-0">
+            <div class=" sticky d-flex flex-column  align-items-center justify-content-between  align-items-sm-start pt-2 text-white min-vh-100 ">
+                <a href="/frontend/static" class="d-flex align-items-center justify-content-center pb-3 w-100 ">
+                    <span class="d-none d-sm-inline w-100 px-sm-2 border border-2 border-light border-top-0 border-end-0 border-start-0"><img class="w-100" src="../static/images/Logo.png" alt="Лого"></span>
+                </a>
+                <ul class="nav w-100 nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start px-sm-2 mt-2" id="menu">
+                    <li class="nav-item w-100">
+                        <a href="home.html" class="nav-link align-middle d-flex justify-content-start align-items-center">
+                            <i class="fs-5 fa-solid fa-house"></i> <span class="ms-2  d-sm-inline">Главная</span>
+                        </a>
+                    </li>
+                    <li class="w-100">
+                        <a href="#" data-bs-toggle="collapse" class="nav-link d-flex justify-content-start align-items-center fs-6">
+                            <i class=" fa-regular fa-money-bill-1"></i> <span class="ms-2  d-sm-inline ">Доходы & Расходы</span> </a>
+
+                    </li>
+
+                    <li class="w-100">
+                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link active d-flex justify-content-start align-items-center fs-6">
+                             <span class="ms-1  d-sm-inline">Категории</span><i
+                                class="fa-solid fa-chevron-right ms-1 mt-1"></i></a>
+                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link active d-flex justify-content-start align-items-center fs-6"><i class="fa-solid fa-plus ms-1"></i> <span class=" d-sm-inline"> Доходы</span> </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link d-flex justify-content-start align-items-center fs-6"><i class="fa-solid fa-minus ms-1"></i> <span class=" d-sm-inline"> Расходы</span> </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <div class="balance mb-2 px-sm-2">Баланс: <span>$500</span></div>
+                <div class="dropdown pb-4 w-100 border border-2 border-start-0 border-end-0 border-bottom-0 border-light">
+                    <a href="#" class="d-flex align-items-center justify-content-between text-decoration-none dropdown-toggle p-3" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                        <span class=" d-sm-inline mx-1">Имя Фамилия</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="#">Выйти из аккаунта</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col py-3 pt-5">
+            <h3>Редактирование категории расходов</h3>
+            <div class="row mt-4">
+                <div class="col col-md-auto w-50" >
+                    <input class="input rounded" type="text" placeholder="Название...">
+                    <div class="category-actions mt-2">
+                        <button class="btn btn-success m-1">Сохранить</button>
+                        <button class="btn btn-danger m-1 ">Отмена</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pop-up" id="popUp">
+    <div class="pop-up-item border border-light rounded">
+        <h5>Вы действительно хотите удалить категорию? Связанные доходы будут удалены навсегда.</h5>
+        <div class="pop-up-actions">
+            <button class="btn btn-success m-1">Да, удалить</button>
+            <button class="btn btn-danger m-1" id="cancel">Не удалять</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://kit.fontawesome.com/b53e324172.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../app.js" type="module"></script>
+</body>
+</html>

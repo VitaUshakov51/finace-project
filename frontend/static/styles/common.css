@@ -76,7 +76,7 @@ body {
     align-items: center;
     position: fixed;
     top: 3%;
-    left: 3%;
+    right: 3%;
     width: 40px;
     height: 40px;
     background-color: #052C65;

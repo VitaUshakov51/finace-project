@@ -1,0 +1,114 @@
+body {
+    color: #052C65;
+}
+
+.fa-house {
+    color: #052C65;
+    transition: all .3s;
+}
+
+.fa-money-bill-1 {
+    color: #052C65;
+    transition: all .3s;
+}
+
+.fa-chevron-right {
+    color: #052C65;
+    transition: all .3s;
+}
+
+.nav-pills li a {
+    color: #052C65;
+    transition: all .3s;
+}
+
+.nav-pills li a:hover {
+    background-color: #0D6EFD;
+    color: white;
+}
+
+.nav-pills li a:hover .fa-house {
+    color: white;
+}
+.nav-pills li a:hover .fa-money-bill-1 {
+    color: white;
+}
+.nav-pills li a:hover .fa-chevron-right {
+    color: white;
+}
+
+.drop-item {
+    display: none;
+    opacity: 0;
+}
+
+.drop-item--active {
+    display: block;
+    animation: showBlock .3s linear forwards;
+}
+
+@keyframes showBlock {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.balance {
+    font-weight: 500;
+    color: #052C65;
+}
+
+.balance span {
+    color: #0D6EFD;
+}
+
+.burger {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 3%;
+    left: 3%;
+    width: 40px;
+    height: 40px;
+    background-color: #052C65;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.fa-bars {
+    color: white;
+}
+
+.sidebar .sticky {
+    position: sticky;
+    top: 0;
+}
+
+@media (max-width: 1000px) {
+    .burger {
+        display: flex;
+    }
+
+    .sidebar {
+        top: 0;
+        left: 0;
+        position: fixed;
+        transform: translateX(-100%);
+        background: white;
+        z-index: 10;
+        transition: all .3s;
+    }
+
+    .sidebar--show {
+        transform: translateX(0%);
+    }
+
+
+}
+
+

@@ -100,6 +100,7 @@ body {
 }
 
 .burger {
+    cursor: pointer;
     display: none;
     justify-content: center;
     align-items: center;

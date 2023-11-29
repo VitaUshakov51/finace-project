@@ -1,26 +1,11 @@
+import {CustomHttp} from "../services/custom-http.js";
+import Config from "../../config/config.js";
+import {Auth} from "../services/auth.js";
+
 export class Signin {
     constructor() {
-        this.formElement = `<form>
-        <label for="fullName" id="itemFullName" class="form__label mb-2 d-flex align-items-center border border-2 border-secondary-subtle rounded-1 ">
-            <span class="form__icon"><img src="/images/person.png" alt="Человек"></span>
-            <input type="text" id="fullName" class="form__input border-0 w-100" placeholder="ФИО">
-        </label>
-        <label for="email" class="form__label mb-2 d-flex align-items-center border border-2 border-secondary-subtle rounded-1 ">
-            <span class="form__icon"><img src="/images/mail.png" alt="Письмо"></span>
-            <input type="email" id="email" class="form__input border-0 w-100" placeholder="Электронная почта">
-        </label>
-        <label for="password" class="form__label mb-2 d-flex align-items-center border border-2 border-secondary-subtle rounded-1 ">
-            <span class="form__icon"><img src="/images/lock.png" alt="Замок"></span>
-            <input type="password" id="password" class="form__label border-0 w-100" placeholder="Пароль">
-        </label>
-        <label for="acceptPassword" id="itemAcceptPassword" class="form__label mb-2 d-flex align-items-center border border-2 border-secondary-subtle rounded-1 ">
-            <span class="form__icon"><img src="/images/lock.png" alt="Замок"></span>
-            <input type="password" id="acceptPassword" class="form__input border-0 w-100" placeholder="Подтвердите пароль">
-        </label>
-        <button class="w-100 btn btn-primary mt-3 mb-2" id="process" disabled>Войти</button>
-        <div class="form__link" ><span id="formLinkText">Уже есть аккаунт?</span> <a href="#/login" id="formLink">Войдите в систему</a></div>
-    </form>`;
-        this.showForm();
+        this.body = document.getElementById('body');
+        this.body.classList.add('d-flex', 'p-3', 'justify-content-center', 'align-items-center');
         this.fields = [
             {
                 name: 'fullName',
@@ -53,8 +38,9 @@ export class Signin {
         ];
 
         this.processElement = document.getElementById('process');
-        this.processElement.onclick = function () {
-            alert('Работает');
+        this.processElement.onclick = function (e) {
+            e.preventDefault();
+            that.processForm();
         }
 
         const that = this;
@@ -65,12 +51,6 @@ export class Signin {
             }
         })
     }
-
-
-    showForm(){
-        document.getElementById('content').innerHTML = this.formElement;
-    };
-
 
 
     validateField(field, element) {
@@ -86,7 +66,7 @@ export class Signin {
         this.validateForm();
     };
 
-    checkPassword(){
+    checkPassword() {
         const password = this.fields[2].element;
         const acceptPassword = this.fields[3].element;
         if (password.value !== acceptPassword.value) {
@@ -117,6 +97,57 @@ export class Signin {
         return validForm;
     }
 
+    async processForm() {
+        if (this.validateForm()) {
+            const fullName = this.fields.find(item => item.name === 'fullName').element.value;
+            const fullNameArr = fullName.split(' ');
+            const name = fullNameArr[0];
+            const lastName = fullNameArr[1];
+            const email = this.fields.find(item => item.name === 'email').element.value;
+            const password = this.fields.find(item => item.name === 'password').element.value;
+            const acceptPassword = this.fields.find(item => item.name === 'acceptPassword').element.value;
+            const rememberMe = this.fields.find(item => item.name === 'agreeElement');
+            try {
+                const result = await CustomHttp.request(Config.host + '/signup', 'POST', {
+                    name: name,
+                    lastName: lastName,
+                    email: email,
+                    password: password,
+                    passwordRepeat: acceptPassword,
+                })
+                if (!result.error) {
+                    location.href = '#/home';
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                return console.log(error)
+            }
+            try {
+
+                const result = await CustomHttp.request(Config.host + '/login', 'POST', {
+                    email: email,
+                    password: password,
+                    rememberMe: false,
+                })
+                if (result) {
+                    if (result.error || !result.tokens || !result.user) {
+                        throw new Error(result.message)
+                    }
+                    Auth.setTokens(result.tokens.accessToken, result.tokens.refreshToken);
+                    Auth.setUserInfo({
+                        name: result.user.name,
+                        lastName: result.user.lastName,
+                        id: result.user.id,
+                    });
+                    location.href = '#/home';
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+    };
 
 
 }

@@ -1,31 +1,26 @@
-<body class="" id="body">
+
+<body id="body">
 <div class="container-fluid">
-    <span class="burger" id="burger"><svg width="20" height="20" viewBox="0 0 13 14" fill="none"
-                                          xmlns="http://www.w3.org/2000/svg">
+ <span class="burger" id="burger"><svg width="20" height="20" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.75" width="11.75" height="1.5" rx="0.75" fill="white"/>
 <rect x="0.75" y="6.25" width="11.75" height="1.5" rx="0.75" fill="white"/>
 <rect x="0.75" y="12.5" width="11.75" height="1.5" rx="0.75" fill="white"/>
 </svg></span>
     <div class="row flex-nowrap">
-        <div id="sidebar"
-             class="sidebar col-auto col-md-3 col-xl-2  px-0 border border-2 border-light border-top-0 border-bottom-0">
+        <div id="sidebar" class="sidebar col-auto col-md-3 col-xl-2  px-0 border border-2 border-light border-top-0 border-bottom-0">
             <div class=" sticky d-flex flex-column  align-items-center justify-content-between  align-items-sm-start pt-2 text-white min-vh-100 ">
                 <a href="/frontend/static" class="d-flex align-items-center justify-content-center pb-3 w-100 ">
-                    <span class="d-none d-sm-inline w-100 px-sm-2 border border-2 border-light border-top-0 border-end-0 border-start-0"><img
-                            class="w-100" src="/images/Logo.png" alt="Лого"></span>
+                    <span class="d-none d-sm-inline w-100 px-sm-2 border border-2 border-light border-top-0 border-end-0 border-start-0"><img class="w-100" src="/images/Logo.png" alt="Лого"></span>
                 </a>
-                <ul class="nav w-100 nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start px-sm-2 mt-2"
-                    id="menu">
+                <ul class="nav w-100 nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start px-sm-2 mt-2" id="menu">
                     <li class="nav-item w-100">
-                        <a href="#/home" class="nav-link align-middle d-flex justify-content-start align-items-center">
+                        <a href="home.html" class="nav-link align-middle d-flex justify-content-start align-items-center">
                             <i class="fs-5 fa-solid fa-house"></i> <span class="ms-2  d-sm-inline">Главная</span>
                         </a>
                     </li>
                     <li class="w-100">
-                        <a href="#/incomeAndExpenses"
-                           class="nav-link d-flex justify-content-start align-items-center fs-6">
-                            <i class=" fa-regular fa-money-bill-1"></i> <span class="ms-2  d-sm-inline ">Доходы & Расходы</span>
-                        </a>
+                        <a href="#/incomeAndExpenses" class="nav-link d-flex justify-content-start align-items-center fs-6">
+                            <i class=" fa-regular fa-money-bill-1"></i> <span class="ms-2  d-sm-inline ">Доходы & Расходы</span> </a>
 
                     </li>
 
@@ -36,14 +31,13 @@
                                 class="fa-solid fa-chevron-right ms-1 mt-1"></i></a>
                         <ul class="collapse nav flex-column ms-1 collapse show" id="submenu2" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="#/income"
-                                   class="nav-link active  d-flex justify-content-start align-items-center fs-6"><i
+                                <a href="#" class="nav-link  d-flex justify-content-start align-items-center fs-6"><i
                                         class="fa-solid fa-plus ms-1"></i> <span class=" d-sm-inline"> Доходы</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#/expenses"
-                                   class="nav-link  d-flex justify-content-start align-items-center fs-6"><i
+                                <a href="#"
+                                   class="nav-link active d-flex justify-content-start align-items-center fs-6"><i
                                         class="fa-solid fa-minus ms-1"></i> <span class=" d-sm-inline"> Расходы</span>
                                 </a>
                             </li>
@@ -66,26 +60,31 @@
                         <span class="text-wrap d-sm-inline mx-3" id="userFullName">Имя Фамилия</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li>
-                            <div class="dropdown-item" id="logout-link">Выйти из аккаунта</div>
-                        </li>
+                        <li><div class="dropdown-item" id="logout-link">Выйти из аккаунта</div></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="col py-3 pt-5">
-            <h3>Доходы</h3>
-            <div class="row mt-4" id="categoryWrapper">
+            <h3>Редактирование категории Доходов</h3>
+            <div class="row mt-4">
+                <div class="col col-md-auto w-50" >
+                    <input class="input rounded" id="categoryName" type="text" placeholder="Название...">
+                    <div class="category-actions mt-2">
+                        <button class="btn btn-success m-1" id="saveButton">Сохранить</button>
+                        <a href="#/expenses" class="btn btn-danger m-1 " id="cancelButton">Отмена</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <div class="pop-up" id="popUp">
     <div class="pop-up-item border border-light rounded">
-        <h5>Вы действительно хотите удалить категорию?</h5>
+        <h5>Вы действительно хотите удалить категорию? Связанные доходы будут удалены навсегда.</h5>
         <div class="pop-up-actions">
-            <button class="btn btn-success m-1" id="acceptDelete">Да, удалить</button>
-            <button class="btn btn-danger m-1" id="cancelDelete">Не удалять</button>
+            <button class="btn btn-success m-1">Да, удалить</button>
+            <button class="btn btn-danger m-1" id="cancel">Не удалять</button>
         </div>
     </div>
 </div>

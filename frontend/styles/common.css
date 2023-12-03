@@ -114,6 +114,10 @@ body {
     z-index: 100;
 }
 
+.sidebar {
+    width: 270px;
+}
+
 .fa-bars {
     color: white;
 }
@@ -121,6 +125,10 @@ body {
 .sidebar .sticky {
     position: sticky;
     top: 0;
+}
+
+.input-data {
+    max-width: 150px;
 }
 
 @media (max-width: 1000px) {
@@ -232,6 +240,10 @@ body {
 
 .delete-operation:hover ,.editing-operation:hover {
     color: #CED4DA;
+}
+
+.dropdown-item {
+    cursor: pointer;
 }
 
 

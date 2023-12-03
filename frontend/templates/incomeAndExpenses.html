@@ -1,11 +1,11 @@
 
+<body id="body">
 <div class="container-fluid">
     <span class="burger" id="burger"><svg width="20" height="20" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.75" width="11.75" height="1.5" rx="0.75" fill="white"/>
 <rect x="0.75" y="6.25" width="11.75" height="1.5" rx="0.75" fill="white"/>
 <rect x="0.75" y="12.5" width="11.75" height="1.5" rx="0.75" fill="white"/>
-</svg>
-</span>
+</svg></span>
     <div class="row flex-nowrap">
         <div id="sidebar" class="sidebar col-auto col-md-3 col-xl-2  px-0 border border-2 border-light border-top-0 border-bottom-0">
             <div class=" sticky d-flex flex-column  align-items-center justify-content-between  align-items-sm-start pt-2 text-white min-vh-100 ">
@@ -14,12 +14,12 @@
                 </a>
                 <ul class="nav w-100 nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start px-sm-2 mt-2" id="menu">
                     <li class="nav-item w-100">
-                        <a href="#" class="nav-link active align-middle d-flex justify-content-start align-items-center">
+                        <a href="#/home" class="nav-link  align-middle d-flex justify-content-start align-items-center">
                             <i class="fs-5 fa-solid fa-house"></i> <span class="ms-2  d-sm-inline">Главная</span>
                         </a>
                     </li>
                     <li class="w-100">
-                        <a href="#/incomeAndExpenses" class="nav-link d-flex justify-content-start align-items-center fs-6">
+                        <a href="#/incomeAndExpenses"  class="nav-link active d-flex justify-content-start align-items-center fs-6">
                             <i class=" fa-regular fa-money-bill-1"></i> <span class="ms-2  d-sm-inline ">Доходы & Расходы</span> </a>
 
                     </li>
@@ -41,22 +41,32 @@
                 </ul>
                 <div class="balance mb-2 px-sm-2">Баланс: <span id="userBalance">$0</span></div>
                 <div class="dropdown pb-4 w-100 border border-2 border-start-0 border-end-0 border-bottom-0 border-light">
-                    <a href="#" class="d-flex align-items-center justify-content-between text-decoration-none dropdown-toggle p-3" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="avatar"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <a href="#"
+                       class="d-flex align-items-center justify-content-between text-decoration-none dropdown-toggle p-3"
+                       id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="avatar"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                                  xmlns="http://www.w3.org/2000/svg">
 <circle cx="18" cy="18" r="18" fill="#D9D9D9"/>
-<path d="M18 18C19.0609 18 20.0783 17.5786 20.8284 16.8284C21.5786 16.0783 22 15.0609 22 14C22 12.9391 21.5786 11.9217 20.8284 11.1716C20.0783 10.4214 19.0609 10 18 10C16.9391 10 15.9217 10.4214 15.1716 11.1716C14.4214 11.9217 14 12.9391 14 14C14 15.0609 14.4214 16.0783 15.1716 16.8284C15.9217 17.5786 16.9391 18 18 18ZM20.6667 14C20.6667 14.7072 20.3857 15.3855 19.8856 15.8856C19.3855 16.3857 18.7072 16.6667 18 16.6667C17.2928 16.6667 16.6145 16.3857 16.1144 15.8856C15.6143 15.3855 15.3333 14.7072 15.3333 14C15.3333 13.2928 15.6143 12.6145 16.1144 12.1144C16.6145 11.6143 17.2928 11.3333 18 11.3333C18.7072 11.3333 19.3855 11.6143 19.8856 12.1144C20.3857 12.6145 20.6667 13.2928 20.6667 14ZM26 24.6667C26 26 24.6667 26 24.6667 26H11.3333C11.3333 26 10 26 10 24.6667C10 23.3333 11.3333 19.3333 18 19.3333C24.6667 19.3333 26 23.3333 26 24.6667ZM24.6667 24.6613C24.6653 24.3333 24.4613 23.3467 23.5573 22.4427C22.688 21.5733 21.052 20.6667 18 20.6667C14.9467 20.6667 13.312 21.5733 12.4427 22.4427C11.5387 23.3467 11.336 24.3333 11.3333 24.6613H24.6667Z" fill="#6C757D"/>
+<path d="M18 18C19.0609 18 20.0783 17.5786 20.8284 16.8284C21.5786 16.0783 22 15.0609 22 14C22 12.9391 21.5786 11.9217 20.8284 11.1716C20.0783 10.4214 19.0609 10 18 10C16.9391 10 15.9217 10.4214 15.1716 11.1716C14.4214 11.9217 14 12.9391 14 14C14 15.0609 14.4214 16.0783 15.1716 16.8284C15.9217 17.5786 16.9391 18 18 18ZM20.6667 14C20.6667 14.7072 20.3857 15.3855 19.8856 15.8856C19.3855 16.3857 18.7072 16.6667 18 16.6667C17.2928 16.6667 16.6145 16.3857 16.1144 15.8856C15.6143 15.3855 15.3333 14.7072 15.3333 14C15.3333 13.2928 15.6143 12.6145 16.1144 12.1144C16.6145 11.6143 17.2928 11.3333 18 11.3333C18.7072 11.3333 19.3855 11.6143 19.8856 12.1144C20.3857 12.6145 20.6667 13.2928 20.6667 14ZM26 24.6667C26 26 24.6667 26 24.6667 26H11.3333C11.3333 26 10 26 10 24.6667C10 23.3333 11.3333 19.3333 18 19.3333C24.6667 19.3333 26 23.3333 26 24.6667ZM24.6667 24.6613C24.6653 24.3333 24.4613 23.3467 23.5573 22.4427C22.688 21.5733 21.052 20.6667 18 20.6667C14.9467 20.6667 13.312 21.5733 12.4427 22.4427C11.5387 23.3467 11.336 24.3333 11.3333 24.6613H24.6667Z"
+      fill="#6C757D"/>
 </svg>
 </span>
                         <span class="text-wrap d-sm-inline mx-3" id="userFullName">Имя Фамилия</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><div class="dropdown-item" id="logout-link" >Выйти из аккаунта</div></li>
+                        <li><div class="dropdown-item" id="logout-link">Выйти из аккаунта</div></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="col py-3 pt-5">
-            <h3>Главная</h3>
+            <h3>Доходы и расходы</h3>
+            <div class="row mt-4">
+                <div class="category-actions">
+                    <button class="btn btn-success m-1" id="createIncome">Создать доход</button>
+                    <button class="btn btn-danger m-1" id="createExpenses" >Создать расход</button>
+                </div>
+            </div>
             <div class=" row mt-4">
                 <div class="col col-md-auto">
                     <button id="today" class="btn btn btn-secondary m-1">Сегодня</button>
@@ -81,21 +91,34 @@
                     <label for="dataTo">По </label> <input class="input-data p-1 rounded ms-1" type="date" id="dataTo" placeholder="ГГГГ-ММ-ДД">
                 </div>
             </div>
-            <div class="row mt-5">
-                <div class="col text-center">
-                    <h4>Доходы</h4>
-                    <div id="canvasInnerIncome">
+            <div class="row mt-5 p-3 overflow-auto">
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col">№ операции</th>
+                        <th scope="col">Тип</th>
+                        <th scope="col">Категория</th>
+                        <th scope="col">Сумма</th>
+                        <th scope="col">Дата</th>
+                        <th scope="col">Комментарий</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody id="table">
 
-                    </div>
-                </div>
-                <div class="col text-center">
-                    <h4>Расходы</h4>
-                    <div id="canvasInnerExpenses">
-
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
 
+<div class="pop-up" id="popUp">
+    <div class="pop-up-item border border-light rounded">
+        <h5>Вы действительно хотите удалить операцию?</h5>
+        <div class="pop-up-actions">
+            <button class="btn btn-success m-1" id="acceptDelete">Да, удалить</button>
+            <button class="btn btn-danger m-1" id="cancelDelete">Не удалять</button>
+        </div>
+    </div>
+</div>
